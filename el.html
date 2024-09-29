@@ -38,9 +38,14 @@
             top: 103px; /* 페이지 상단에 위치 */
             left: 155px; /* 페이지 왼쪽에 위치 */
             z-index: 1; /* header보다 위에 배치 */
+            display: none; /* 기본적으로 숨김 */
             
         }
 
+        nav.mainNav li:hover .subNav,
+        nav.mainNav li .subNav:hover {
+            display: block; /* 마우스 오버 시 표시 */
+        }
         nav ul {
             list-style: none; /* 기본 목록 스타일 제거 */
             padding: 0; /* 패딩 제거 */
@@ -56,13 +61,22 @@
         
         nav a {
             text-decoration: none; /* 기본 밑줄 제거 */
-            color: black; /* 링크 색상 설정 */
+            color: #173B66;
+            font-weight: normal;
         }
 
+        .navBox {
+            background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)60%); 
+            width: 100%;
+            height: 150px;
+            position: fixed; /* 고정 위치 설정 */
+            top: 0; /* 페이지 상단에 위치 */
+        }
 
         .subNav > ul > li {
             font-size: 15px;
             margin-right: 45px;
+            color: #656565;
         }
 
 
@@ -107,7 +121,6 @@
         .artwork1Caption, .artwork2Caption, .artwork3Caption, .artwork4Caption
         ,.artwor5Caption, .artwork6Caption, .artwork7Caption, .artwork8Caption {
             width: 65%;
-            background-color: #fff;
             display: flex; /* Flexbox 사용 */
             flex-direction: column; /* 수직 배치 */
             justify-content: center; /* 수직 중앙 정렬 */
@@ -128,8 +141,12 @@
             align-items: flex-end; /* 오른쪽 정렬 */
         }
 
-        .artwork6IMG, .artwork8IMG {
-            justify-content: ri;
+        .artwork6IMG > img {
+            width: 840px;
+        }
+
+        .artwork8IMG > img {
+            width: 928px;
         }
         /* artwork6 css 끝 */
 
@@ -263,25 +280,111 @@
             
         }
 
+        @media (max-width : 1220px) {
+            body { width: 100%;}
+            .content {width: 100%;}
+            .navBox {width: 100%;}
+        }
 
+        @media (max-width : 768px) {
+            body {width: 100%;}
+            header { width: 100%; height: 423px; }
+
+        }
+
+        @media (max-width : 480px) {
+            body {width: 100%; height: 4000px;}
+            .content {width: 100%; }
+            .navBox {width: 100%; height: 50px;}
+            .mainNav li {font-size: 16px; margin-right: 40px;}
+            .mainNav {top: 30px; left: 20px;}
+            .artwork1, .artwork2, .artwork3, .artwork4, .artwork5, .artwork7, .artwork8 {
+                flex-direction: column; /* 모바일에서 세로 방향으로 줄바꿈 */
+                align-items: flex-start; /* 왼쪽 정렬 */
+                margin-bottom: 40px; /* 각 아트워크 섹션 간의 간격 */
+                height: 1100px;
+            }
+
+            .portrait, .artWork {
+                width: 100%; /* 전체 너비 사용 */
+                margin-right: 0; /* 가로 간격 제거 */
+                margin-bottom: 200px; /* 아래쪽 간격 추가 */
+                height: 800px;
+            }
+
+            .artwork2 {
+                margin-top: 800px;
+            }
+            
+
+            .artwork1IMG, .artwork2IMG, .artwork3IMG, .artwork4IMG, .artwork5IMG, .artwork7IMG, .artwork8IMG {
+                display: block; /* 블록으로 변경하여 세로 방향으로 나열 */
+            }
+
+            .artwork6IMG > img, .artwork8IMG > img {width: 480px;}
+            
+            .artwork2Note, .artwork3Note, .artwork4Note,
+            .artwork5Note,  .artwork7Note
+            ,.artwork8Note {
+                width: 100%;
+                margin-top: 100px;
+                margin-bottom: 200px;
+
+            }
+            
+            .artwork2Note > p, .artwork3Note > p , .artwork4Note > p,
+            .artwork5Note > p, .artwork7Note > p,
+            .artwork8Note > p {
+                width: 85%;
+                
+                
+            }
+    
+    
+            .artwork2Main, .artwork3Main, .artwork4Main, .artwork5Main,
+            .artwork7Main, .artwork8Main{     
+                width: 100%;
+                
+            }
+
+            .artwork6Main, .artwork8Main { width: 100%; margin-top: 300px; }
+
+            .artworkText > p {
+                width: 70%;
+                font-size: 14px;
+            }
+
+            .interviewVideo {width: 100%; height: 300px;}
+
+            .yezi, .heo {
+                width: 100%;
+                background-color: red;
+                margin-right: px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="navBox">
         <nav class="mainNav">
             <ul>
                 <li><a href="/insight.html">Insight</a></li>
-                <li ><a href="el.html">얼</a></li>
-                <li>Outsight</li>
-                <li>Guest book</li>
+                <li style="height: 50px">
+                    <a href="el.html" style="color: #ff4f4f; font-weight: bolder;">얼</a>
+                    <nav class="subNav">
+                        <ul>
+                            <li style="color: #ff4f4f; font-weight : bold;">구지희</li>
+                            <li>문예지</li>
+                            <li>허정</li>
+                        </ul>
+                    </nav>
+                </li>
+                <li><a href="">Outsight</a></li>
+                <li><a href="">Guest book</a></li>
             </ul>
         </nav>
-        <nav class="subNav">
-            <ul>
-                <li>구지희</li>
-                <li>문예지</li>
-                <li>허정</li>
-            </ul>
-        </nav>
+    </div>
         <div class="contents">
             <section class="artwork">
                 <!-- 작품1 div -->
@@ -400,7 +503,7 @@
                 <div class="artwork6">
                     <div class="artwork6Main">
                         <div class="artwork6IMG">
-                            <img src="/JIhoe Koo_06.jpg" alt="" style="width: 840px;">
+                            <img src="/JIhoe Koo_06.jpg" alt="" >
                         </div>
 
                         <div class="artwork6Caption">
@@ -436,7 +539,7 @@
                 <div class="artwork8">
                     <div class="artwork8Main">
                         <div class="artwork8IMG">
-                            <img src="/JIhoe Koo_08.jpg" alt="" style="width: 928px;">
+                            <img src="/JIhoe Koo_08.jpg" alt="">
                         </div>
 
                         <div class="artwork8Caption">
